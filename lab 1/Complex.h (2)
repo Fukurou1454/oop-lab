@@ -1,0 +1,22 @@
+#pragma once
+
+#include <iostream>
+#include <cmath>
+
+#ifndef COMPLEX_H_
+#define COMPLEX_H_
+
+class Complex {
+	double re;	
+	double im;	
+public:
+	Complex();	
+	Complex(double, double);	
+	void setNumber(double, double);	
+	double getRe();	
+	double getIm();
+	double countModule();
+	Complex& operator= (const Complex&);	
+	friend std::ostream& operator<< (std::ostream&, const Complex&);	
+	~Complex();	
+};
