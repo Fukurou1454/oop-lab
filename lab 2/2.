@@ -1,0 +1,46 @@
+include <iostream>
+using namespace std;
+double sum(double a, double b)
+{
+	return a + b;
+}
+
+double composition(double a, double b)
+{
+	return a * b;
+}
+
+double difference(double a, double b) 
+{
+	return a - b;
+}
+double(*p)(double a, double b);
+int main()
+
+SetConsoleCP(1251);
+SetConsoleOutputCP(1251);
+  
+{
+	double a, b;
+	cout << "Введите а и b" << endl;
+	cin >> a >> b;
+	int z;
+	
+	cout << "1 - разность, 2 - сумма, 3 - произведение" << endl;
+	cin >> z;
+	switch (z)
+	{
+	case 1: p = difference;
+		break;
+	case 2: p = sum;
+		break;
+	case 3: p = composition;
+		break;
+	default:
+		break;
+	}
+
+	cout<<p(a, b)<<endl;
+	system("pause");
+    return 0;
+}
