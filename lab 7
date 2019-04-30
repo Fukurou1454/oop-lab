@@ -1,0 +1,105 @@
+#include "pch.h"
+#include <iostream>
+#include<string>
+#include "windows.h"
+
+using namespace std;
+
+class Human 
+{
+protected:
+	string name;
+	string surname;
+	string midname;
+	int age;
+public:
+	Human() : name(""), surname(""), midname(""), age(0) {};
+
+	Human(string surname, string name, string midname, int age) :
+		name(name), surname(surname), midname(midname), age(age) {};
+
+	virtual void print() = 0;
+
+	~Human() {}
+};
+
+class Student : public Human 
+{
+	bool onlesson;
+public:
+	Student() : Human(), onlesson(false) {};
+
+	Student(string surname, string name, string midname, int age, bool onlesson) :
+		Human(surname, name, midname, age), onlesson(onlesson) {};
+
+	void print() 
+	{
+		cout << "Имя" << surname << " " << name << " " << midname << endl;
+		cout << "Возраст" << age << endl;
+		cout << "Сейчас на уроке? " << onlesson << endl;
+	}
+
+	~Student() {};
+};
+
+class Boss : public Human {
+	int numberofworkers;
+public:
+	Boss() : Human(), numberofworkers(0) {};
+
+	Boss(string surname, string name, string midname, int age, int numberofworkers) :
+		Human(surname, name, midname, age), numberofworkers(number of workers) {};
+
+	void print() 
+	{
+		cout << "Имя" << surname << " " << name << " " << midname << endl;
+		cout << "Возраст" << age << endl;
+		cout << "Колличество рабочих" << numberofworkers << endl;
+	}
+
+	~Boss() {};
+};
+
+int main() {
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+
+	string surname, name, midname;
+	int age, numberofworkers;
+	bool onlesson;
+
+	
+
+	cout << "Студент" << endl;
+	cout << "Фамилия ";
+	cin >> surname;
+	cout << "Имя";
+	cin >> name;
+	cout << "Отчество";
+	cin >> midname;
+	cout << "Возарст";
+	cin >> age;
+	cout << "Сейчас на уроке? (0 - нет)(1 - да)";
+	cin >> onlesson;
+
+	Student s(surname, name, midname, age, onlesson);
+
+	cout << endl << "Босс" << endl;
+	cout << "Фамилия";
+	cin >> surname;
+	cout << "Имя";
+	cin >> name;
+	cout << "Отчество";
+	cin >> midname;
+	cout << "Возарст";
+	cin >> age;
+	cout << "Колличество рабочих";
+	cin >> numberofworkers;
+
+	Boss b(surname, name, midname, age, numberofworkers);
+	s.print();
+	b.print();
+
+	system("pause");
+	return 0;
+}
