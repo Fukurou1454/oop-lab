@@ -1,0 +1,53 @@
+#include "stdafx.h"
+#include <iostream>
+#include <string>
+#include<cmath>
+using namespace std;
+
+class Complex {
+	double Re, Im;
+public:
+	Complex() {
+		cout << "Действительная часть:" << endl;
+		cin >> Re;
+		cout << "Мнимая часть:" << endl;
+		cin >> Im;
+		
+	}
+	Complex(const Complex &other) {
+		this->Re = other.Re;
+		this->Im = other.Im;
+	}
+	~Complex() {};
+	void set_c() {
+		cout << "Действительная часть:" << endl;
+		cin >> Re;
+		cout << "Мнимая часть:" << endl;
+		cin >> Im;
+	}
+	string get_c() {
+		return to_string(Re) + "+" + to_string(Im) + "i";
+	}
+	double modul() {
+		return sqrt(Re*Re + Im*Im);
+	}
+	double arg() {
+		return atan(Im / Re);
+	}
+};
+
+int main()
+
+SetConsoleCP(1251);
+SetConsoleOutputCP(1251);
+  
+{
+	Complex a;
+	
+	cout << a.get_c() << endl;;
+	cout << a.modul() << endl;
+	cout << a.arg() << endl;
+
+	system("pause");
+	return 0;
+}
