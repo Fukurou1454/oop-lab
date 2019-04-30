@@ -1,47 +1,35 @@
-#include "pch.h"
-#include "windows.h"
-#include <iostream>
-#include <string>
-using namespace std;
+#include <iostream> 
+#include <string> 
+using namespace std; 
 
-class tile
+class Students { 
+string *members; 
+int n; 
+public: 
+void makestudents(); 
+void getstudent(); 
+}; 
+void Students::makestudents() 
+{ 
+cout << "Введите колличество студентов:" << endl; 
+cin >> n; 
+members = new string[n]; 
+for (int i = 0; i < n; i++)
 {
+cout<<"Фамилия студента:"<<endl;
+cin >> members[i]; 
+}
 
-public:
-	string brand;
-	double size_h;
-	double size_w;
-	void set()
-	{
-		cout << "Бренд:";
-		cin >> brand;
+} 
+void Students::getstudent() { 
+for (int i = 0; i < n; i++)cout<<"Студент"<<i+1<<" " << members[i]<< endl; 
+} 
 
-		cout << "Длина:";
-		cin >> size_h;
-
-		cout << "Ширина:";
-		cin >> size_w;
-
-	}
-	void getData()
-	{
-		cout << brand << " размер " << size_h << " x " << size_w << endl;
-	}
-
-};
-int main()
-{
-	SetConsoleCP(1251);
-	SetConsoleOutputCP(1251);
-
-	tile a,b;
-	a.set();
-	b.set();
-	cout << "Первый кафель:";
-	a.getData();
-	cout << "Второй кафель:";
-	b.getData();
-
-	system("pause");
-	return 0;
+int main() 
+{ 
+Students a; 
+a.makestudents(); 
+a.getstudent(); 
+system("pause"); 
+return 0; 
 }
