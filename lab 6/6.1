@@ -1,0 +1,75 @@
+#include "pch.h"
+#include <iostream>
+#include "windows.h"
+#include<string>
+
+using namespace std;
+
+class Student
+{
+protected:
+	string name;
+	string surname;
+	string group;
+
+public:
+	virtual void set()
+	{  
+		cout << "Имя студента:" << endl;
+		cin >> name;
+		cout << "Фамилия студента:" << endl;
+		cin >> surname;
+		cout << "Группа студента:" << endl;
+		cin >> group;
+
+	}
+	virtual void get()
+	{
+		cout << "Меня зовут " <<surname<<" "<<name<<" я студент группы "<<group<< endl;
+	}
+};
+
+class Headman : public Student
+{
+protected:
+	string email;
+	string phone;
+public:
+	void set()
+	{
+		cout << "Имя старосты:" << endl;
+		cin >> name;
+		cout << "Фамилию старосты:" << endl;
+		cin >> surname;
+		cout << "Группа старосты:" << endl;
+		cin >> name;
+		cout << "email старосты:" << endl;
+		cin >> email;
+		cout << "Телефон старосты:" << endl;
+		cin >> phone;
+
+	}
+	void get()
+	{
+		cout << "Меня зовут " << surname << " " << name << " я староста группы " << group << endl;
+		cout << "Мой email:"<< email << endl;
+		cout << "Мой телефон:" << phone << endl;
+	}
+};
+
+
+int main()
+{
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+
+	Student a;
+	Headman b;
+	a.set();
+	a.get();
+	b.set();
+	b.get();
+
+	system("pause");
+	return 0;
+}
