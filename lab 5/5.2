@@ -1,0 +1,115 @@
+#include "stdafx.h"
+#include <iostream>
+#include<string>
+using namespace std;
+
+class Vector {
+	double x, y, angle;
+public:
+	Vector() {
+		cout << "Введите x и y вектора:" << endl;
+		cin >> x >> y;
+	}
+	Vector(const Vector &other) {
+		this->x = other.x;
+		this->y = other.y;
+	}
+	~Vector(){}
+	void set_Vector() {
+		cout << "Введите x и y вектора: " << endl;
+		cin >> x >> y;
+	}
+	double module() {
+		return sqrt(x*x + y * y);
+	}
+
+	void Set_angle(Vector &other) {
+		angle = this->x*other.x + this->y*other.y / (this->module()*other.module());
+
+	}
+	Vector sum(Vector &other) 
+  {
+		this->x = this->x + other.x;
+		this->y = this->y + other.y;
+		return *this;
+	}
+
+	Vector diff(Vector &other) 
+  {
+		this->x = this->x - other.x;
+		this->y = this->y - other.y;
+		return *this;
+	}
+	double comp(Vector &other) 
+  {
+		return this->module()*other.module()*cos(angle);
+	}
+	double comp(Vector &other)
+  {
+		return this->module()*other.module()*sin(angle);
+	}
+	friend ostream& operator<< (std::ostream &out, const Vector &vector)
+	{
+		
+    return out;
+	}
+	friend istream& operator>> (std::istream &in, Vector &vector)
+	{
+	
+		in >> vector.x;
+		in >> vector.y;
+		
+		return in;
+	}
+	bool operator > (Vector & other) {
+		if (this->module() > other.module())return true;
+		else return false;
+	}
+	bool operator < (Vector & other) 
+  {
+		if (this->module() < other.module())return true;
+		else return false;
+	}
+	bool operator == (Vector & other) 
+  {
+		if (this->module() == other.module())return true;
+		else return false;
+	}
+	Vector& operator ++ () 
+  {
+		this->x = x + 1;
+		this->y = y + 1;
+		return *this;
+	}
+	Vector& operator -- ()
+  {
+		this->x = x - 1;
+		this->y = y - 1;
+		return *this;
+	}
+};
+
+
+
+int main()
+
+SetConsoleCP(1251);
+SetConsoleOutputCP(1251);
+
+{
+	Vector a, b ;
+	if (a > b)cout << a <<"Больше"<< endl;
+	else if (a < b)cout << b << "Больше" << endl;
+	else if (a == b)cout << "Равно";
+	cout << "incr a" << ++a<<endl;
+	cout << "decr a" << --a<<endl;
+	
+	a.Set_angle(b);
+	cout << "Сумма" << a.sum(b) << endl;
+	cout << "Разность" << a.diff(b) << endl;
+	cout << "Скалярное произведение" << a.compsk(b) << endl;
+	cout << "Векторное произведение" << a.compvec(b) << endl;
+	system("pause");
+	
+	return 0;
+}
