@@ -25,78 +25,80 @@ public:
 
 class Student : public Human 
 {
-	bool onlesson;
+	bool on_lesson;
 public:
-	Student() : Human(), onlesson(false) {};
+	Student() : Human(), on_lesson(false) {};
 
-	Student(string surname, string name, string midname, int age, bool onlesson) :
-		Human(surname, name, midname, age), onlesson(onlesson) {};
+	Student(string surname, string name, string midname, int age, bool on_lesson) :
+		Human(surname, name, midname, age), on_lesson(on_lesson) {};
 
 	void print() 
 	{
-		cout << "Имя" << surname << " " << name << " " << midname << endl;
-		cout << "Возраст" << age << endl;
-		cout << "Сейчас на уроке? " << onlesson << endl;
+	cout << "Имя: " << surname << " " << name << " " << midname << endl;
+	cout << "Возраст: " << age << endl;
+	cout << "Находится на уроке? " << on_lesson << endl;
 	}
 
 	~Student() {};
 };
 
 class Boss : public Human {
-	int numberofworkers;
+	int number_of_workers;
 public:
-	Boss() : Human(), numberofworkers(0) {};
+	Boss() : Human(), number_of_workers(0) {};
 
-	Boss(string surname, string name, string midname, int age, int numberofworkers) :
-		Human(surname, name, midname, age), numberofworkers(number of workers) {};
+	Boss(string surname, string name, string midname, int age, int number_of_workers) :
+		Human(surname, name, midname, age), number_of_workers(number_of_workers) {};
 
 	void print() 
 	{
-		cout << "Имя" << surname << " " << name << " " << midname << endl;
-		cout << "Возраст" << age << endl;
-		cout << "Колличество рабочих" << numberofworkers << endl;
+	cout << "Имя : " << surname << " " << name << " " << midname << endl;
+	cout << "Возраст: " << age << endl;
+	cout << "Кол-во рабочих: " << number_of_workers << endl;
 	}
 
 	~Boss() {};
 };
 
 int main() {
-	SetConsoleCP(1251);
-	SetConsoleOutputCP(1251);
+	
+SetConsoleCP(1251);
+SetConsoleOutputCP(1251);
+
 
 	string surname, name, midname;
-	int age, numberofworkers;
-	bool onlesson;
+	int age, number_of_workers;
+	bool on_lesson;
 
 	
 
-	cout << "Студент" << endl;
-	cout << "Фамилия ";
+	cout << "Студент:" << endl;
+	cout << "Фамилия: ";
 	cin >> surname;
-	cout << "Имя";
+	cout << "Имя: ";
 	cin >> name;
-	cout << "Отчество";
+	cout << "Отчество: ";
 	cin >> midname;
-	cout << "Возарст";
+	cout << "Взарст: ";
 	cin >> age;
-	cout << "Сейчас на уроке? (0 - нет)(1 - да)";
-	cin >> onlesson;
+	cout << "В данный момент находится на уроке? (0 - нет)(1 - да) ";
+	cin >> on_lesson;
 
-	Student s(surname, name, midname, age, onlesson);
+	Student s(surname, name, midname, age, on_lesson);
 
-	cout << endl << "Босс" << endl;
-	cout << "Фамилия";
+	cout << endl << "Босс:" << endl;
+	cout << "Фамилия: ";
 	cin >> surname;
-	cout << "Имя";
+	cout << "Имя: ";
 	cin >> name;
-	cout << "Отчество";
+	cout << "Отчество: ";
 	cin >> midname;
-	cout << "Возарст";
+	cout << "Возарст: ";
 	cin >> age;
-	cout << "Колличество рабочих";
-	cin >> numberofworkers;
+	cout << "Колличество рабочих: ";
+	cin >> number_of_workers;
 
-	Boss b(surname, name, midname, age, numberofworkers);
+	Boss b(surname, name, midname, age, number_of_workers);
 	s.print();
 	b.print();
 
